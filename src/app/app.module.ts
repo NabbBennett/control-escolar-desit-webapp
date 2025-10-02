@@ -12,18 +12,23 @@ import { RegistroUsuariosScreenComponent } from './screens/registro-usuarios-scr
 //Layouts
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { RegistroAdminComponent } from './partials/registro-admin/registro-admin.component';
+import { RegistroAlumnosComponent } from './partials/registro-alumnos/registro-alumnos.component';
+import { RegistroMaestrosComponent } from './partials/registro-maestros/registro-maestros.component';
 
 //Angular material
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
-import { RegistroAdminComponent } from './partials/registro-admin/registro-admin.component';
-import { RegistroAlumnosComponent } from './partials/registro-alumnos/registro-alumnos.component';
-import { RegistroMaestrosComponent } from './partials/registro-maestros/registro-maestros.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 //Ngx-cookie-service
 import { CookieService } from 'ngx-cookie-service';
+
+// Third Party Modules
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -45,10 +50,14 @@ import { CookieService } from 'ngx-cookie-service';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgxMaskDirective
   ],
   providers: [
-    CookieService
+    CookieService,
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })
