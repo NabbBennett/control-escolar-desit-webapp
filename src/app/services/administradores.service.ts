@@ -32,7 +32,8 @@ export class AdministradoresService {
       'telefono': '',
       'rfc': '',
       'edad': '',
-      'ocupacion': ''
+      'ocupacion': '',
+      'materias': []
     }
   }
 
@@ -98,6 +99,10 @@ export class AdministradoresService {
 
     if(!this.validatorService.required(data["ocupacion"])){
       error["ocupacion"] = this.errorService.required;
+    }
+
+    if(!data["materias"] || data["materias"].length === 0){
+      error["materias"] = "Selecciona al menos una materia";
     }
 
     //Return arreglo
